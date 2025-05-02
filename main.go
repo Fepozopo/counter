@@ -12,12 +12,16 @@ func main() {
 		log.Fatalf("failed to read from file: %v", err)
 	}
 
-	wordCount := countWords(data)
+	wordCount := CountWords(data)
 
 	fmt.Println(wordCount)
 }
 
-func countWords(data []byte) int {
+func CountWords(data []byte) int {
+	if len(data) == 0 {
+		return 0
+	}
+
 	wordCount := 0
 	for _, v := range data {
 		if v == ' ' {
