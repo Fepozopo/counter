@@ -8,7 +8,11 @@ import (
 )
 
 func main() {
-	data, err := os.ReadFile("./words.txt")
+	filename := "./words.txt"
+
+	log.SetFlags(0)
+
+	data, err := os.ReadFile(filename)
 	if err != nil {
 		log.Fatalf("failed to read from file: %v", err)
 	}
